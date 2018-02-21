@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: MyString
+  date: MyString
+  type: 
+  address: MyString
+  latitude: 9.99
+  longitude: 9.99
+  distance: 1
+  pace: MyString
+  user_id: 1
+
+two:
+  start_time: MyString
+  date: MyString
+  type: 
+  address: MyString
+  latitude: 9.99
+  longitude: 9.99
+  distance: 1
+  pace: MyString
+  user_id: 1
