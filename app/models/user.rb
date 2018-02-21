@@ -3,6 +3,9 @@ class User < ApplicationRecord
   has_many :friends, class_name: "User", through: :user_friends
   has_many :workouts
 
+
+# testtttt
+
     def associations
       associations = []
 
