@@ -3,9 +3,6 @@ class User < ApplicationRecord
   has_many :friends, class_name: "User", through: :user_friends
   has_many :workouts
 
-
-# testtttt
-
     def associations
       associations = []
 
@@ -30,5 +27,6 @@ class User < ApplicationRecord
     def available_workouts
       self.associations.map{|association| association.workouts}
     end
-  end
+
+    
 end
