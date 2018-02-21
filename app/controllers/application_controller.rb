@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+  # Will need to change once I start on the front end
   def issue_token(payload)
     JWT.encode(payload, ENV["secret_key"], ENV["niffum"])
   end
