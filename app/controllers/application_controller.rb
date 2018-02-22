@@ -1,26 +1,45 @@
 class ApplicationController < ActionController::API
   # Will need to change once I start on the front end
+  private
   def issue_token(payload)
-    JWT.encode(payload, ENV["secret_key"], ENV["niffum"])
+    JWT.encode(payload, secret, algorithm)
   end
 
-  def current_user
-    begin
-      @user = User.find_by(id: user_id)
-    rescue
-      @user = nil
+  def authorize_user
+    if !current_user.present?
+      render json: {error: 'No User Id Present'}
     end
   end
 
-  def user_id
+  def current_user
+    @current_user ||= User.find_by(id: token_user_id)
+  end
+
+  def token_user_id
     decoded_token.first['user_id']
   end
 
   def decoded_token
-    begin
-       JWT.decode(request.headers['Authorization'], ENV['secret_key'])
-     rescue JWT::DecodeError
-      nil
-     end
+    if token
+      begin
+        JWT.decode(token, secret, true, {algorithm: algorithm})
+      rescue JWT::DecodeError
+        return [{}]
+      end
+    else
+      [{}]
+    end
+  end
+
+  def token
+    request.headers['Authorization']
+  end
+
+  def secret
+    'pencil'
+  end
+
+  def algorithm
+    'HS256'
   end
 end
