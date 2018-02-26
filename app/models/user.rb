@@ -28,5 +28,5 @@ class User < ApplicationRecord
       self.associations.map{|association| association.workouts}
     end
 
-    
+
 end

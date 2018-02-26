@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       post '/home', to: 'users#create'
       get '/users', to: 'users#index'
       get '/current_user', to: 'users#show'
+
+
       post '/workouts', to: 'workouts#create'
       get '/workouts', to: 'workouts#index'
       delete '/workouts/:id', to: 'workouts#destroy'
