@@ -1,7 +1,10 @@
 class User < ApplicationRecord
   has_many :user_friends
   has_many :friends, class_name: "User", through: :user_friends
-  has_many :workouts
+  has_many :user_workouts
+  has_many :workouts, through: :user_workouts
+
+  has_secure_password
 
     def associations
       associations = []
@@ -18,6 +21,10 @@ class User < ApplicationRecord
 
     def associations_with_workouts
       self.associations.select{|association| association.workouts}
+    end
+
+    def associations_with_user_workouts
+      self.associations.select{|association| association.user_workouts}
     end
 
     def associations_without_workouts

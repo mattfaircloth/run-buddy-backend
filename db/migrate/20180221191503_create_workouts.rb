@@ -9,7 +9,6 @@ class CreateWorkouts < ActiveRecord::Migration[5.1]
       t.decimal :longitude
       t.decimal :distance
       t.string :pace
-      t.belongs_to :user
 
       t.timestamps
     end

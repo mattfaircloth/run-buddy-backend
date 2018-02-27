@@ -1,7 +1,7 @@
 class WorkoutSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :start_time, :date, :activity, :address, :latitude, :longitude, :distance, :pace
+  attributes :id, :start_time, :date, :activity, :address, :latitude, :longitude, :distance, :pace
 
-  belongs_to :user
+  has_many :users, through: :user_workouts
 
   def user_id
     object.user.id

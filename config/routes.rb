@@ -8,10 +8,16 @@ Rails.application.routes.draw do
       get '/users', to: 'users#index'
       get '/current_user', to: 'users#show'
 
+      post '/signup', to: 'users#signup'
+      post '/login', to: 'users#login'
+      get '/currentuser', to: 'users#find_current_user'
+
 
       post '/workouts', to: 'workouts#create'
       get '/workouts', to: 'workouts#index'
       delete '/workouts/:id', to: 'workouts#destroy'
+
+      post'/userworkouts', to: 'user_workouts#create'
     end
   end
 end

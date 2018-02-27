@@ -7,7 +7,9 @@ class Api::V1::WorkoutsController < ApplicationController
 
   def create
     data = params[:data]
+    user = User.find_by(email: data[:email])
     workout = Workout.create(workout_params(data))
+    user_workout = UserWorkout.create(workout: workout, user: user)
     render json: workout
   end
 
@@ -16,9 +18,10 @@ class Api::V1::WorkoutsController < ApplicationController
     workout.destroy
   end
 
+
+# Require permit
   private
   def workout_params(data)
-    user = User.find_by(email: data[:email])
     params = {
       start_time: data[:start_time],
       date: data[:date],
@@ -27,8 +30,7 @@ class Api::V1::WorkoutsController < ApplicationController
       latitude: data[:latitude],
       longitude: data[:longitude],
       distance: data[:distance],
-      pace: data[:pace],
-      user_id: user.id
+      pace: data[:pace]
     }
   end
 end
