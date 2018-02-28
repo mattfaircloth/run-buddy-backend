@@ -11,6 +11,11 @@ class Api::V1::UserWorkoutsController < ApplicationController
     render json: user_workout
   end
 
+  def destroy
+    user_workout = UserWorkout.find(params[:id])
+    user_workout.destroy
+  end
+
   private
   def user_workout_params(data)
     params = {

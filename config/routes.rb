@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       delete '/workouts/:id', to: 'workouts#destroy'
 
       post'/userworkouts', to: 'user_workouts#create'
+      delete '/userworkouts/:id', to: 'user_workouts#destroy'
     end
   end
 end

@@ -27,10 +27,6 @@ class User < ApplicationRecord
       self.associations.select{|association| association.user_workouts}
     end
 
-    def associations_without_workouts
-      self.associations.select{|association| !association.workouts}
-    end
-
     def available_workouts
       self.associations.map{|association| association.workouts}
     end

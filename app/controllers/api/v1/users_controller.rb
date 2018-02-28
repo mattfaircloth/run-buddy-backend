@@ -72,7 +72,6 @@ class Api::V1::UsersController < ApplicationController
         associations: current_user.associations,
         associations_with_workouts: current_user.associations_with_workouts,
         associations_with_user_workouts: current_user.associations_with_user_workouts,
-        associations_without_workouts: current_user.associations_without_workouts,
         available_workouts: current_user.available_workouts.compact
       }
     else
