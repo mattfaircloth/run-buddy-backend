@@ -9,9 +9,13 @@ class Api::V1::WorkoutsController < ApplicationController
     data = params[:data]
     user = User.find_by(email: data[:email])
     workout = Workout.create(workout_params(data))
+    # workout.owner = user
+    # workout.save
     user_workout = UserWorkout.create(workout: workout, user: user)
     render json: workout
   end
+
+  # only ppl joining a workout should create a user_workout
 
   def destroy
     workout = Workout.find(params[:id])
