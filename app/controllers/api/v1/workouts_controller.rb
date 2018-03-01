@@ -8,10 +8,10 @@ class Api::V1::WorkoutsController < ApplicationController
   def create
     data = params[:data]
     user = User.find_by(email: data[:email])
-    workout = Workout.create(workout_params(data))
-    # workout.owner = user
-    # workout.save
-    user_workout = UserWorkout.create(workout: workout, user: user)
+    workout = Workout.new(workout_params(data))
+    workout.owner = user
+    workout.save
+    # user_workout = UserWorkout.create(workout: workout, user: user)
     render json: workout
   end
 

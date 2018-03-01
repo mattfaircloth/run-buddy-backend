@@ -9,6 +9,7 @@ class CreateWorkouts < ActiveRecord::Migration[5.1]
       t.decimal :longitude
       t.decimal :distance
       t.string :pace
+      t.bigint :owner_id, foreign_key: true
 
       t.timestamps
     end
