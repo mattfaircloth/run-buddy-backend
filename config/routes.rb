@@ -19,6 +19,9 @@ Rails.application.routes.draw do
 
       post'/userworkouts', to: 'user_workouts#create'
       delete '/userworkouts/:id', to: 'user_workouts#destroy'
+
+      post'/userfriends', to: 'user_friends#create'
+      delete '/userfriends/:id', to: 'user_friends#destroy'
     end
   end
 end

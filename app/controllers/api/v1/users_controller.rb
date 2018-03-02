@@ -67,6 +67,7 @@ class Api::V1::UsersController < ApplicationController
         name: current_user.name,
         workouts: current_user.workouts,
         user_workouts: current_user.user_workouts,
+        user_friends: current_user.user_friends,
         email: current_user.email,
         friends: current_user.friends,
         associations: current_user.associations,
