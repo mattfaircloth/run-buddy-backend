@@ -16,6 +16,7 @@ class User < ApplicationRecord
         end
       end
       associations.delete_if{|element| element.name == self.name}.uniq!
+      # byebug
       associations
     end
 
