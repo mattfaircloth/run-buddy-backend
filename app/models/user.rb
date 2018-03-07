@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :user_friends
+  has_many :user_friends, dependent: :destroy
   has_many :friends, class_name: "User", through: :user_friends
   has_many :user_workouts
   has_many :workouts, through: :user_workouts
