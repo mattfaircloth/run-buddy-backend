@@ -62,7 +62,7 @@ class Api::V1::UsersController < ApplicationController
 
   def show
     if current_user
-      friends = current_user.friends.map{|friend| friend.slice(:id, :friends, :name, :email)}
+      friends = current_user.friends.map{|friend| friend.slice(:id, :friends, :name, :email, :phone)}
       # byebug
       render json: {
         id: current_user.id,

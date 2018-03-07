@@ -1,5 +1,5 @@
 class Workout < ApplicationRecord
-  has_many :user_workouts
+  has_many :user_workouts, dependent: :destroy
   has_many :users, through: :user_workouts
   belongs_to :owner, class_name: 'User'
 
